@@ -13,12 +13,12 @@ import java.util.concurrent.TimeUnit
 
 @Module()
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+class NetworkModule {
 
     @Provides
     fun provideRetrofitInstance(@ApplicationContext appContext: Context): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://reqres.in")
+            .baseUrl(BASE_URL)
             .client(provideOkHttpClient(appContext))
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -31,5 +31,10 @@ object NetworkModule {
             .readTimeout(1, TimeUnit.MINUTES)
             .writeTimeout(1, TimeUnit.MINUTES)
             .build()
+    }
+
+    companion object{
+        private const val BASE_URL = "https://reqres.in"
+
     }
 }
