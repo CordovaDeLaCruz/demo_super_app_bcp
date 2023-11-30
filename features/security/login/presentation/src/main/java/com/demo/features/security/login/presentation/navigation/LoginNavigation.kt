@@ -1,9 +1,10 @@
-package com.demo.features.security.login.presentation
+package com.demo.features.security.login.presentation.navigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.demo.features.security.login.presentation.LoginScreen
 import com.demo.share.libs.presentation.navigation.NavigationScreen
 
 fun NavGraphBuilder.loginGraph(navController: NavController) {

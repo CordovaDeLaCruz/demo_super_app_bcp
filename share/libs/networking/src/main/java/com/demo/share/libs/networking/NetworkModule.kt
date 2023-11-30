@@ -18,7 +18,7 @@ object NetworkModule {
     @Provides
     fun provideRetrofitInstance(@ApplicationContext appContext: Context): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://reqres.in/")
+            .baseUrl("https://reqres.in")
             .client(provideOkHttpClient(appContext))
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -32,5 +32,4 @@ object NetworkModule {
             .writeTimeout(1, TimeUnit.MINUTES)
             .build()
     }
-
 }

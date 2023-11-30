@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -44,7 +46,13 @@ dependencies {
     implementation(project(":share:libs:presentation"))
     implementation(project(":share:libs:constants"))
 
+    //COMPOSE
     implementation("androidx.navigation:navigation-compose:2.7.5")
+    implementation("androidx.compose.material3:material3")
+
+    //DAGGER-HILT
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
