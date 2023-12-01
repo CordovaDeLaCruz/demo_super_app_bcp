@@ -15,13 +15,13 @@ class LoginRepositoryImp @Inject constructor(
     private val loginApi: LoginApi,
     private val gson: Gson
 ) : LoginRepository{
-    override suspend fun login(request: LoginRequestModel): Result<LoginResponseModel> {
+    override suspend fun login(loginRequestModel: LoginRequestModel): Result<LoginResponseModel> {
         return try{
-            val request1 = LoginRequestDto(
-                email = request.email,
-                password = request.password
+            val loginRequestDto = LoginRequestDto(
+                email = loginRequestModel.email,
+                password = loginRequestModel.password
             )
-            val result = loginApi.loginService(request1)
+            val result = loginApi.loginService(loginRequestDto)
             if (result.isSuccessful) {
                 val json = gson.toJson(result.body())
                 val loginResponseDto: LoginResponseDto =

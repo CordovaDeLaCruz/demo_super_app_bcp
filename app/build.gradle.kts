@@ -53,9 +53,12 @@ android {
 
 dependencies {
 
+    implementation(project(":share:libs:networking"))
     implementation(project(":share:libs:presentation"))
     implementation(project(":share:libs:constants"))
     implementation(project(":features:splash:presentation"))
+    implementation(project(":features:security:login:data"))
+    implementation(project(":features:security:login:domain"))
     implementation(project(":features:security:login:presentation"))
     implementation(project(":features:session:home:presentation"))
 
@@ -75,6 +78,8 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
 
+    //COIL
+    implementation("io.coil-kt:coil-compose:2.5.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
