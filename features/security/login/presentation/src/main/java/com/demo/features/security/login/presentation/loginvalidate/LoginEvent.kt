@@ -1,4 +1,4 @@
-package com.demo.features.security.login.presentation.event
+package com.demo.features.security.login.presentation.loginvalidate
 
 sealed class LoginEvent {
     data class EmailChanged(val email: String) : LoginEvent()

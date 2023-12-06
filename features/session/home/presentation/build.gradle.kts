@@ -34,6 +34,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
@@ -58,6 +59,10 @@ dependencies {
 
     //COIL
     implementation("io.coil-kt:coil-compose:2.5.0")
+
+    //AAR
+    implementation(files("libs/examplemylibrary-release1.aar"))
+    implementation(files("libs/basicAar-debug.aar"))
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

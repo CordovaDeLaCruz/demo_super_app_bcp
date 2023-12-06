@@ -4,7 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.demo.features.security.login.presentation.screen.LoginScreen
+import com.demo.features.security.login.presentation.loginvalidate.LoginScreen
 import com.demo.share.libs.presentation.navigation.NavigationScreen
 
 fun NavGraphBuilder.loginGraph(navController: NavController) {

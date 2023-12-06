@@ -1,4 +1,4 @@
-package com.demo.features.security.login.presentation.viewmodel
+package com.demo.features.security.login.presentation.loginvalidate
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -6,8 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.demo.features.security.login.domain.model.LoginRequestModel
 import com.demo.features.security.login.domain.usecase.LoginUseCase
-import com.demo.features.security.login.presentation.event.LoginEvent
-import com.demo.features.security.login.presentation.state.LoginState
 import com.demo.share.libs.presentation.components.alert.AlertDialogState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -73,6 +71,7 @@ class LoginViewModel @Inject constructor(
                     loginUseCase.invoke(loginRequestModel = request).onSuccess {
                         _eventFlow.emit(UiEvent.SuccessLogin(it.token))
                         _eventFlow.emit(UiEvent.LoadingDialog(false))
+                        _state.value = _state.value.copy(email = "", password = "")
                     }.onFailure {
                         _eventFlow.emit(
                             UiEvent.ShowError(
@@ -92,7 +91,7 @@ class LoginViewModel @Inject constructor(
 
     sealed class UiEvent {
         data class LoadingDialog(val isShow: Boolean) : UiEvent()
-        data class SuccessLogin(val token: String) : UiEvent()
+        data class SuccessLogin(val token: String?) : UiEvent()
 
         data class ShowError(
             var code: String,

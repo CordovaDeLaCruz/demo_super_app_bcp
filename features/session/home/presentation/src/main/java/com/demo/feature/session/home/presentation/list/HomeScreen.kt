@@ -1,5 +1,6 @@
-package com.demo.feature.session.home.presentation.screen
+package com.demo.feature.session.home.presentation.list
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,9 +15,12 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+//import com.bcp.sdk.product.peoplecompose.presentation.ui.activities.PeopleActivity
+import com.demo.basicaar.MyScreen
 import com.demo.feature.session.home.presentation.components.UserItemCard
 import com.demo.feature.session.home.presentation.model.UserModel
 import com.demo.share.libs.presentation.R
@@ -26,18 +30,20 @@ import com.demo.share.libs.presentation.R
 fun HomeScreen(
     navController: NavController,
 ) {
+    val context = LocalContext.current
+
     val userData = listOf(
         UserModel(
             id = 1,
             email = "",
-            first_name = "Abrir aar con compose",
+            first_name = "Abrir aar modular",
             last_name = "",
             avatar = "https://reqres.in/img/faces/1-image.jpg"
         ),
         UserModel(
             id = 2,
             email = "",
-            first_name = "Abrir aar con viewbinding",
+            first_name = "Abrir aar simple viewbinding",
             last_name = "",
             avatar = "https://reqres.in/img/faces/2-image.jpg"
         ),
@@ -79,7 +85,8 @@ fun HomeScreen(
                             UserItemCard(
                                 user = user,
                                 navigateToAar = {
-
+                                    val intent = Intent(context, MyScreen::class.java)
+                                    context.startActivity(intent)
                                 }
                             )
                         }

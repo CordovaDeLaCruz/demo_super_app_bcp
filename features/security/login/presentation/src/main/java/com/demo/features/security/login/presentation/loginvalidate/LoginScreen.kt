@@ -1,4 +1,4 @@
-package com.demo.features.security.login.presentation.screen
+package com.demo.features.security.login.presentation.loginvalidate
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -38,8 +38,6 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.demo.features.security.login.presentation.LoginApp
-import com.demo.features.security.login.presentation.event.LoginEvent
-import com.demo.features.security.login.presentation.viewmodel.LoginViewModel
 import com.demo.share.libs.constants.navigation.HomeNavScreen
 import com.demo.share.libs.presentation.components.LoadingDialog
 import com.demo.share.libs.presentation.components.alert.AlertDialog
